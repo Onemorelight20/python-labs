@@ -21,7 +21,7 @@ class Bird(Animal):
         self.color = color
 
     def __str__(self) -> str:
-        return super().__str__() + f" color: {self.color}"
+        return f"{super().__str__()} color: {self.color}"
 
 
 class Insect(Animal):
