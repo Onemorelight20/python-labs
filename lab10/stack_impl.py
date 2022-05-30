@@ -16,7 +16,7 @@ class Stack:
         return self.top_el is None
 
     def clear(self):
-        self.top_el = None
+        self.top_el = Node(None)
 
     def top(self):
         if self.is_empty():
@@ -39,6 +39,26 @@ class Stack:
         self.top_el.next = self.top_el.next.next
         self.size_of_stack -= 1
         return return_val.value
+
+    def find(self, elem: ComplexNumber):
+        idx = -1
+        cur = self.top_el.next
+        while cur:
+            idx += 1
+            if elem == cur.value:
+                break
+            cur = cur.next
+        else:
+            return -1
+
+        return idx
+
+    def sum_two_top_elements(self):
+        if self.size() < 2:
+            raise Exception("Stack does not have enough elements for the operation")
+        self.top_el.next.next.value = self.top_el.next.value + self.top_el.next.next.value
+        self.top_el.next = self.top_el.next.next
+        self.size_of_stack -= 1
 
     def __str__(self):
         cur = self.top_el.next

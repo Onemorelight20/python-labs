@@ -3,6 +3,9 @@ class ComplexNumber:
         self.real = real
         self.im = im
 
+    def __add__(self, other):
+        return ComplexNumber(self.real + other.real, self.im + other.im)
+
     def __str__(self):
         if self.im == 0:
             return '%.2f' % self.real
